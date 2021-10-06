@@ -93,19 +93,15 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/Urban extraction/urban.png" alt="">
+                  <img src="assets/img/portfolio/Temporal/fire temporal.gif" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/Urban extraction/training.png" alt="">
+                  <img src="assets/img/portfolio/Temporal/fire.jpg" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/Urban extraction/lulc.png" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/Urban extraction/Workflow.PNG" alt="">
+                  <img src="assets/img/portfolio/Temporal/Workflow.PNG" alt="">
                 </div>
 
               </div>
@@ -117,18 +113,18 @@
             <div class="portfolio-info">
               <h3>Project information</h3>
               <ul>
-                <li><strong>Title</strong>: Polygon extraction of urban area in HK</li>
-                <li><strong>Data source</strong>: The Copernicus Open Access Hub</li>
-                <li><strong>Software used</strong>: QGIS, RStudio</li>
-                <li><strong>Skills</strong>: LULC, fish net grids, raster processing, zonal statistics, polygon dissolve, polygon smoothing</li>
+                <li><strong>Title</strong>: Spatio-temporal and static heatmaps of active fire during the 2019-2020 bushfire crisis in Australia</li>
+                <li><strong>Data source</strong>: Fire Information for Resource Management System (FIRMS), processed by LANCE using the standard MODIS MOD14/MYD14 Fire and Thermal Anomalies product. Data is collected from Aug, 2019 to Dec, 2019.</li>
+                <li><strong>Software used</strong>: ArcGIS Pro</li>
+                <li><strong>Skills</strong>: Spatio-temporal data modelling, heatmap, visualization, animation</li>
               </ul>
             </div>
             <div class="portfolio-description">
               <p>
-                The collection of satellite images is the very first step of this project. A S2MSI2A sentinel-2 imagery with cloud cover percentage less than 2 that covers the entire administrative boundary of Hong Kong was downloaded from the Copernicus Open Access Hub. Once downloaded, I used the Blue (B2), Green (B3), Red (B4), Near infrared (B8) and Short-wave infrared (B11) bands to form a stacked GeoTIFF file. After the bands were stacked up, it was then plugged into R as one of the parameters along with one set of training data and another set of validation data. The ratio for training set and validation set for this particular analysis is 70-30.
+                The active fire dataset was collected from the Fire Information for Resource Management System (FIRMS). Each active fire location represents the centroid of a 1km pixel that is flagged by the algorithm as containing one or more fires within the pixel. The original dataset contains all the active fire spots (hourly) for the year of 2019, so it is a pretty large dataset to begin with (over 400k points).
                 <br>
                 <br>
-                The first stage of the script involved two indices calculations of Normalized Difference Vegetation Index (NDVI) and Normalized Difference Water Index (NDWI) which were then added on top of the stacked GeoTIFF to form a new raster brick of covariates. After that, the script called for the training and validation sets to assign code values to raster cells where the vector and raster layers overlap. This would then create a new training dataset through the combination of classes layer and raster brick of training pixels. All values were then extracted into a matrix to form part of the training model. Finally, the newly formed raster brick of covariates was classified using the SVM model within R environment. The resulting classification output has a percentage yield of almost 83% accuracy. As shown in picture 3, the final output of the LULC classification consists of 7 classes: agriculture, bareland, forest, grassland, urban, urban shadow and water. Urban and urban shadow were then extracted to form the urban polgyons using various geoa stacked GeoTIFF file processing tools in QGIS (see picture 4). The final output can be seen in the first picture.
+                In this project, I first built a geoprocessing model to extract points from collected from August, 2019 to December, 2019 (see Picture 3), as the goal of this project is to study pattern during this period of bushfire crisis. As shown in Picture 2, the point data was converted to a heatmap to visualize clusters of fire events during this 4 months. The heatmap was weighted by the brightness temperature in Kelvin which tells us whereabout the fire is most intense and dangerous. Other than the static heatmap, I was able to build a spatio-temporal map to study the movement of fire events across the whole continent by using the ArcGIS Pro animator tool (see Picture 1).
               </p>
             </div>
           </div>

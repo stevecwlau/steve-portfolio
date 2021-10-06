@@ -93,19 +93,23 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/Urban extraction/urban.png" alt="">
+                  <img src="assets/img/portfolio/FYP/suicide prevalence.png" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/Urban extraction/training.png" alt="">
+                  <img src="assets/img/portfolio/FYP/Framework.png" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/Urban extraction/lulc.png" alt="">
+                  <img src="assets/img/portfolio/FYP/Workflow.png" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/Urban extraction/Workflow.PNG" alt="">
+                  <img src="assets/img/portfolio/FYP/CA-SEDEP.PNG" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/FYP/CA-UD.PNG" alt="">
                 </div>
 
               </div>
@@ -117,18 +121,23 @@
             <div class="portfolio-info">
               <h3>Project information</h3>
               <ul>
-                <li><strong>Title</strong>: Polygon extraction of urban area in HK</li>
-                <li><strong>Data source</strong>: The Copernicus Open Access Hub</li>
-                <li><strong>Software used</strong>: QGIS, RStudio</li>
-                <li><strong>Skills</strong>: LULC, fish net grids, raster processing, zonal statistics, polygon dissolve, polygon smoothing</li>
+                <li><strong>Title</strong>: Investigate the spatial association of suicide and socioeconomic variables in Hong Kong
+                  <br>
+                  <a href="https://drive.google.com/file/d/1qxS-XjjeyEdwRvQe60YXyD7WChD4CEOG/view?usp=sharing">Download Full Study [PDF]</a></li>
+                <li><strong>Data source</strong>: HK open data portal, the Copernicus Open Access Hub, NOAA National Centers for Environmental Information, WorldPop, Sqaurefoot Hong Kong, Midland Properties, Open Street Map (OSM)</li>
+                <li><strong>Software used</strong>: QGIS, ArcMap, Tableau, Web Scraper (Chrome extension)</li>
+                <li><strong>Skills</strong>: Correlation Analysis, LULC, heatmap, webscraping, geocoding, satellite imagery processing, weighted overlay analysis</li>
               </ul>
             </div>
             <div class="portfolio-description">
               <p>
-                The collection of satellite images is the very first step of this project. A S2MSI2A sentinel-2 imagery with cloud cover percentage less than 2 that covers the entire administrative boundary of Hong Kong was downloaded from the Copernicus Open Access Hub. Once downloaded, I used the Blue (B2), Green (B3), Red (B4), Near infrared (B8) and Short-wave infrared (B11) bands to form a stacked GeoTIFF file. After the bands were stacked up, it was then plugged into R as one of the parameters along with one set of training data and another set of validation data. The ratio for training set and validation set for this particular analysis is 70-30.
+                As part of the requirements for my degree, I have successfully completed my final year research project based on GIS and suicide issues (awarded an A grade). The objective of the project was to investigate the spatial association of suicide and socioeconomic variables in Hong Kong.
                 <br>
                 <br>
-                The first stage of the script involved two indices calculations of Normalized Difference Vegetation Index (NDVI) and Normalized Difference Water Index (NDWI) which were then added on top of the stacked GeoTIFF to form a new raster brick of covariates. After that, the script called for the training and validation sets to assign code values to raster cells where the vector and raster layers overlap. This would then create a new training dataset through the combination of classes layer and raster brick of training pixels. All values were then extracted into a matrix to form part of the training model. Finally, the newly formed raster brick of covariates was classified using the SVM model within R environment. The resulting classification output has a percentage yield of almost 83% accuracy. As shown in picture 3, the final output of the LULC classification consists of 7 classes: agriculture, bareland, forest, grassland, urban, urban shadow and water. Urban and urban shadow were then extracted to form the urban polgyons using various geoa stacked GeoTIFF file processing tools in QGIS (see picture 4). The final output can be seen in the first picture.
+                This study applied geocoding, processing and raster extraction functionalities in Geographic Information System (GIS), using GIS software QGIS and ArcMap. Correlation analysis was also conducted in Tableau to identify the relationship between two socioeconomic variables and suicide incidence. The study also applied quartic heatmap interpolation technique to map suicide prevalence in the city. The result indicates that both urban density and socioeconomic deprivation are directly and significantly (at 0.001% level) related to suicide incidence. The suicide risk map based on finding of the correlation analysis was mapped using weighted overlay analysis.
+                <br>
+                <br>
+                The study concluded that the null hypothesis (H0) that there is no significant relationship between urban density/ socioeconomic deprivation and suicide incidence may be rejected at 0.01% (P<0.0001) level of significance. The top nine districts with the highest suicide prevalence are Sha Tin, Yuen Long, Tuen Mun, Kwai Tsing, Eastern, Sai Kung, Kwun Tong, Sham Shui Po and Tai Po.
               </p>
             </div>
           </div>
